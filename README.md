@@ -13,7 +13,7 @@
 2=>The add button will add boxes which have a unique number on them
 3=>only when the toggle is On ,then only the boxes can be moved
 4=>Use W,A,S,D to move the boxes inside the fence
-5=>A delete button is present on the right side which can be used to delete the box
+5=>Press the delete button on the keyboard to delete the box
 6=>No npm libraries are used in the process except node sass to use scss instead of normal css.
 ```
 
