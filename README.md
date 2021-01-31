@@ -1,4 +1,10 @@
-clone the repo
-cd into the repo
-type npm install in the terminal
-and then type npm start
+1=>clone the repo
+2=>cd into the repo
+3=>type npm install in the terminal
+4=>type npm start
+5=>deployed version link https://flytbase-box.herokuapp.com/
+///Important Points/////
+1=>The brown dash lines represent the fence
+2=>The add button will add boxes which have a unique number on them
+3=> only when the toggle is On ,then only the boxes can be moved
+4=>No npm libraries are used in the process
