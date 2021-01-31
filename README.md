@@ -11,6 +11,8 @@
 ```
 1=>The brown dash lines represent the fence
 2=>The add button will add boxes which have a unique number on them
-3=> only when the toggle is On ,then only the boxes can be moved
-4=>No npm libraries are used in the process
+3=>only when the toggle is On ,then only the boxes can be moved
+4=>Use W,A,S,D to move the boxes inside the fence
+5=>No npm libraries are used in the process
 ```
+
