@@ -16,8 +16,18 @@ class Main extends Component {
         this.setState({isToggle:!this.state.isToggle})
     }
     handleBox=()=>{
+        if(this.state.isToggle)
+        {
         this.setState({box:[...this.state.box,{id:this.state.count+1}]})
         this.setState({count:this.state.count+1})
+        }
+    }
+    handleDel=(idd)=>
+    {
+        this.setState(prevState => {
+            const box = prevState.box.filter(task => task.id !== idd);
+            return { box };
+        });
     }
     render() { 
         console.log(this.state)
@@ -26,11 +36,10 @@ class Main extends Component {
             <div className="left"><button onClick={this.handleBox}>Add Box</button></div>
             <div className="right">
                 <button onClick={this.handleToggle} value={this.state.isToggle} className={this.state.isToggle?'on':'off'}>{this.state.isToggle?'ON':"OFF"}</button>
-                
                 </div>
             </div>
             <div className='arena'>
-                {this.state.box.map(val=><Box key={val.id} v={val.id} t={this.state.isToggle}></Box>)}
+                {this.state.box.map(val=><Box key={val.id} v={val.id} action={this.handleDel} t={this.state.isToggle}></Box>)}
            
             </div>
            

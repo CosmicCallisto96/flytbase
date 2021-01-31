@@ -8,6 +8,12 @@ class Box extends Component {
         bottom:0,
         right:0
      }
+    handleDelete=(id)=>{
+        if(this.props.t)
+        {
+            this.props.action(id);
+        }
+    }
     handleSelect=()=>{
         if(this.props.t)
     {
@@ -44,13 +50,20 @@ class Box extends Component {
     }
     render() {
         console.log(this.state) 
-        return (
-            <div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
+        return (<>
+            {this.state.isClicked===true?<><div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
             <button  className="bt"
             onClick={this.handleSelect} onKeyPress={this.keyboardEvents}>
              {this.props.v}
              </button>
-         </div>
+         </div></>:<><button onClick={()=>this.handleDelete(this.props.v)} className="del" style={{width:'100px',height:'50px',position:'absolute',marginLeft:400,marginBottom:this.props.v*18,zIndex:this.props.v}}>Delete</button><div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
+            <button  className="bt"
+            onClick={this.handleSelect} onKeyPress={this.keyboardEvents}>
+             {this.props.v}
+             </button>
+         </div></>}
+            
+         </>
           );
     }
 }
