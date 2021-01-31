@@ -23,9 +23,14 @@ class Box extends Component {
     keyboardEvents = (event) =>{
         event.persist();
         console.log(event.key);
+        // console.log(String.fromCharCode(event.keyCode));
     if(this.props.t)
     {
-        if(event.key==='w' && (this.state.top<350))
+        if(event.key==='Delete')
+        {
+            this.handleDelete(this.props.v)
+        }
+        else if(event.key==='w' && (this.state.top<350))
         {
             this.setState({top:this.state.top+10})
             this.setState({bottom:this.state.bottom-10})
@@ -50,20 +55,12 @@ class Box extends Component {
     }
     render() {
         console.log(this.state) 
-        return (<>
-            {this.state.isClicked===true?<><div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
+        return (<div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
             <button  className="bt"
-            onClick={this.handleSelect} onKeyPress={this.keyboardEvents}>
+            onClick={this.handleSelect} onKeyDown={this.keyboardEvents}>
              {this.props.v}
              </button>
-         </div></>:<><button onClick={()=>this.handleDelete(this.props.v)} className="del" style={{width:'100px',height:'50px',position:'absolute',marginLeft:400,marginBottom:this.props.v*18,zIndex:this.props.v}}>Delete</button><div className={this.state.clicked?'top':'bottom'}  id={this.props.id} style={{marginRight:this.state.left,marginLeft:this.state.right,marginBottom:this.state.top,marginTop:this.state.bottom,zIndex:this.props.v}}>
-            <button  className="bt"
-            onClick={this.handleSelect} onKeyPress={this.keyboardEvents}>
-             {this.props.v}
-             </button>
-         </div></>}
-            
-         </>
+         </div>
           );
     }
 }
